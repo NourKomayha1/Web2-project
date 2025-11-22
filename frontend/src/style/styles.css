@@ -1,0 +1,22 @@
+.card:hover {
+    transform: scale(1.03);
+    transition: transform 0.2s ease;
+  }
+  @media (max-width: 576px) {
+    .book-img {
+      height: 220px !important;
+    }
+  }
+  
+  @media (min-width: 577px) and (max-width: 768px) {
+    .book-img {
+      height: 280px !important;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .book-img {
+      height: 350px !important;
+    }
+  }
+  
