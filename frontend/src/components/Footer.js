@@ -10,7 +10,7 @@ function Footer() {
         <Row className="text-center text-md-start">
           {/* Logo / Brand */}
           <Col md={4} className="mb-3">
-            <h3 className="footer-brand">Bookies</h3>
+            <h3 className="footer-brand">BookAddict</h3>
             <p className="footer-desc">
             The best online bookshop
               based in Lebanon
@@ -27,11 +27,11 @@ function Footer() {
             </ul>
           </Col>
           <Col md={4} className="mb-3">
-          <h5 className="footer-title">Categories</h5>
-          <ul className="footer-links list-unstyled">
-              <li><Link to="/arabicBooks">Arabic Books</Link></li>
-              <li><Link to="/englishBooks">English Books</Link></li>
-          </ul>
+            <h5 className="footer-title">Categories</h5>
+            <ul className="footer-links list-unstyled">
+              <li><Link to="/arabic">Arabic Books</Link></li>
+              <li><Link to="/english">English Books</Link></li>
+            </ul>
           </Col>
           
         </Row>
@@ -42,7 +42,7 @@ function Footer() {
         <Row>
           <Col className="text-center">
             <p className="footer-bottom mb-0">
-              &copy; {new Date().getFullYear()} <strong>BookiesLB</strong> — All rights reserved 💜
+              &copy; {new Date().getFullYear()} <strong>BookAddict</strong> — All rights reserved 💜
             </p>
           </Col>
         </Row>

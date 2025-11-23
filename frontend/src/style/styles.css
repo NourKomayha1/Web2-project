@@ -2,21 +2,188 @@
     transform: scale(1.03);
     transition: transform 0.2s ease;
   }
+  
+  /* Purple buttons - override Bootstrap default colors */
+  .btn-primary,
+  .btn-secondary,
+  .btn-success,
+  .btn-danger,
+  .btn-info,
+  .btn-warning,
+  .btn-outline-primary,
+  .btn-outline-secondary,
+  .btn-outline-success,
+  .btn-outline-danger {
+    background-color: rgb(75, 20, 134) !important;
+    border-color: rgb(75, 20, 134) !important;
+    color: white !important;
+  }
+  
+  .btn-outline-primary,
+  .btn-outline-secondary,
+  .btn-outline-success,
+  .btn-outline-danger {
+    background-color: transparent !important;
+    color: rgb(75, 20, 134) !important;
+  }
+  
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-success:hover,
+  .btn-danger:hover,
+  .btn-info:hover,
+  .btn-warning:hover {
+    background-color: rgb(95, 30, 154) !important;
+    border-color: rgb(95, 30, 154) !important;
+    color: white !important;
+  }
+  
+  .btn-outline-primary:hover,
+  .btn-outline-secondary:hover,
+  .btn-outline-success:hover,
+  .btn-outline-danger:hover {
+    background-color: rgb(75, 20, 134) !important;
+    border-color: rgb(75, 20, 134) !important;
+    color: white !important;
+  }
+  
+  .btn-primary:active,
+  .btn-primary:focus,
+  .btn-secondary:active,
+  .btn-secondary:focus,
+  .btn-success:active,
+  .btn-success:focus,
+  .btn-danger:active,
+  .btn-danger:focus {
+    background-color: rgb(65, 15, 114) !important;
+    border-color: rgb(65, 15, 114) !important;
+    box-shadow: 0 0 0 0.25rem rgba(75, 20, 134, 0.5) !important;
+  }
+  
+  /* Responsive book card image sizing */
+  .book-card-img {
+    object-fit: cover;
+    width: 100%;
+  }
+  
   @media (max-width: 576px) {
-    .book-img {
+    .book-card-img {
       height: 220px !important;
+    }
+    
+    /* Reduce gap between cards on small screens for better two-column layout */
+    .g-4 {
+      --bs-gutter-x: 0.75rem;
+      --bs-gutter-y: 0.75rem;
+    }
+    
+    /* Reduce padding in card body on small screens */
+    .card-body {
+      padding: 0.75rem !important;
+    }
+    
+    /* Smaller font sizes for better fit */
+    .card-title {
+      font-size: 0.95rem !important;
+    }
+    
+    .card-text {
+      font-size: 0.85rem !important;
+    }
+    
+    .btn {
+      font-size: 0.85rem !important;
+      padding: 0.4rem 0.8rem !important;
     }
   }
   
   @media (min-width: 577px) and (max-width: 768px) {
-    .book-img {
+    .book-card-img {
       height: 280px !important;
     }
   }
   
   @media (min-width: 769px) {
-    .book-img {
+    .book-card-img {
       height: 350px !important;
+    }
+  }
+  
+  /* Home Page Styling */
+  .home-page {
+    padding-bottom: 3rem;
+  }
+  
+  .home-hero-section {
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+    padding: 0.5rem 0;
+  }
+  
+  .home-image-link {
+    display: block;
+    text-align: center;
+  }
+  
+  .home-hero-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .home-hero-image:hover {
+    transform: scale(1.02);
+  }
+  
+  .home-title-section {
+    margin-top: 2rem;
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgb(75, 20, 134);
+    margin-bottom: 0.5rem;
+  }
+  
+  .home-subtitle {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin: 0;
+  }
+  
+  .home-book-card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  .home-book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(75, 20, 134, 0.15) !important;
+  }
+  
+  @media (max-width: 768px) {
+    .home-title {
+      font-size: 2rem;
+    }
+    
+    .home-subtitle {
+      font-size: 1rem;
+    }
+    
+    .home-hero-section {
+      padding: 0.25rem 0;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .home-title {
+      font-size: 1.75rem;
     }
   }
   

@@ -12,7 +12,7 @@ function NavigationBar() {
         <Container fluid>
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Brand as={Link} to="/" className="mx-auto position-absolute start-50 translate-middle-x">
-          Bookies
+          BookAddict
         </Navbar.Brand>
           
           <Navbar.Offcanvas id="offcanvasNavbar-expand-lg" aria-labelledby="offcanvasNavbarLabel-expand-lg" placement="start">
@@ -30,6 +30,7 @@ function NavigationBar() {
                   <NavDropdown.Item as={Link} to="/english">English Books</NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+                <Nav.Link as={Link} to="/purchased">My Books</Nav.Link>
                 <Nav.Link as={Link} to="/about">About</Nav.Link>
                 <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
               </Nav>

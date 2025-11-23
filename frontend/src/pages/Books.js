@@ -14,13 +14,13 @@ function Books() {
       <h2 className="text-center mb-4 fw-bold">All Books</h2>
       <Row className="g-4">
         {allBooks.map((book, index) => (
-          <Col key={index} xs={12} sm={6} md={4} lg={3}>
+          <Col key={index} xs={6} sm={6} md={4} lg={3}>
             <Card className="h-100 shadow-sm border-0">
               <Card.Img
                 variant="top"
                 src={book.image}
                 alt={book.title}
-                style={{ height: '400px', objectFit: 'cover' }}
+                className="book-card-img"
               />
               <Card.Body className="text-center">
                 <Card.Title className="fw-bold">{book.title}</Card.Title>

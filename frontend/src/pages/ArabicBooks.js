@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { BooksContext } from '../context/booksContext';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import '../style/styles.css';
 
 function ArabicBooks() {
   const { allBooks,addToCart } = useContext(BooksContext);
@@ -13,15 +14,14 @@ function ArabicBooks() {
       <h2 className="text-center mb-4 fw-bold">Arabic Books</h2>
       <Row className="g-4">
         {arabicBooks.map((book, index) => (
-          <Col key={index} xs={12} sm={6} md={4} lg={3}>
+          <Col key={index} xs={6} sm={6} md={4} lg={3}>
             <Card className="h-100 shadow-sm border-0">
               <Card.Img
                 variant="top"
                 src={book.image}
                 alt={book.title}
+                className="book-card-img"
                 style={{
-                  height: '400px',
-                  objectFit: 'cover',
                   borderTopLeftRadius: '10px',
                   borderTopRightRadius: '10px'
                 }}

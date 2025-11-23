@@ -1,0 +1,147 @@
+.contact-page {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.contact-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgb(75, 20, 134);
+  margin-bottom: 1rem;
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-info-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background: white;
+  height: 100%;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(75, 20, 134, 0.2);
+}
+
+.contact-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgb(75, 20, 134) 0%, rgb(95, 30, 154) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(75, 20, 134, 0.3);
+}
+
+.contact-info-card h5 {
+  color: rgb(75, 20, 134);
+  font-weight: 600;
+}
+
+.contact-form-card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  background: white;
+  overflow: hidden;
+}
+
+.contact-form-card h3 {
+  color: rgb(75, 20, 134);
+  font-weight: 700;
+}
+
+.contact-input {
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.contact-input:focus {
+  border-color: rgb(75, 20, 134);
+  background-color: white;
+  box-shadow: 0 0 0 0.2rem rgba(75, 20, 134, 0.15);
+  outline: none;
+}
+
+.contact-input::placeholder {
+  color: #adb5bd;
+}
+
+.form-label {
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.btn-lg {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(75, 20, 134, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+  
+  .contact-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .contact-form-card {
+    margin-top: 2rem !important;
+  }
+  
+  .contact-info-card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-page {
+    padding: 1rem 0;
+  }
+  
+  .contact-title {
+    font-size: 1.75rem;
+  }
+  
+  .contact-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .contact-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .contact-form-card .card-body {
+    padding: 1.5rem !important;
+  }
+}
+

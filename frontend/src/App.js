@@ -11,6 +11,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import ArabicBooks from './pages/ArabicBooks';
 import EnglishBooks from './pages/EnglishBooks';
+import PurchasedBooks from './pages/PurchasedBooks';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/arabic" element={<ArabicBooks />} />
         <Route path="/english" element={<EnglishBooks />} />
+        <Route path="/purchased" element={<PurchasedBooks />} />
 
       </Routes>
       <Footer />
