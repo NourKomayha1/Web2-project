@@ -16,7 +16,7 @@ import PurchasedBooks from './pages/PurchasedBooks';
 function App() {
   return (
     <BooksProvider>
-    <Router>
+    <Router basename="/Web2-project">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
