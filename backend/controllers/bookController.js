@@ -4,7 +4,7 @@ const db = require("../config/db");
    GET ALL BOOKS
 ========================= */
 exports.getAllBooks = (req, res) => {
-  db.query("SELECT * FROM Books", (err, results) => {
+  db.query("SELECT * FROM books", (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ message: "Server error" });
@@ -19,7 +19,7 @@ exports.getAllBooks = (req, res) => {
 exports.getBookById = (req, res) => {
   const { id } = req.params;
 
-  db.query("SELECT * FROM Books WHERE id = ?", [id], (err, results) => {
+  db.query("SELECT * FROM books WHERE id = ?", [id], (err, results) => {
     if (err || results.length === 0) {
       return res.status(404).json({ message: "Book not found" });
     }
@@ -38,7 +38,7 @@ exports.createBook = (req, res) => {
   }
 
   const sql = `
-    INSERT INTO Books (name, author, image, pdf, price, category, quantity)
+    INSERT INTO books (name, author, image, pdf, price, category, quantity)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
 
@@ -63,7 +63,7 @@ exports.updateBook = (req, res) => {
   const { name, author, image, pdf, price, category, quantity } = req.body;
 
   const sql = `
-    UPDATE Books
+    UPDATE books
     SET name=?, author=?, image=?, pdf=?, price=?, category=?, quantity=?
     WHERE id=?
   `;
@@ -87,7 +87,7 @@ exports.updateBook = (req, res) => {
 exports.deleteBook = (req, res) => {
   const { id } = req.params;
 
-  db.query("DELETE FROM Books WHERE id=?", [id], (err) => {
+  db.query("DELETE FROM books WHERE id=?", [id], (err) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ message: "Error deleting book" });

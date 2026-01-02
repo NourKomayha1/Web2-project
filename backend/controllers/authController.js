@@ -15,7 +15,7 @@ exports.register = (req, res) => {
   const hashedPassword = bcrypt.hashSync(password, 10);
 
   const sql =
-    "INSERT INTO Users (name, email, password, role) VALUES (?, ?, ?, ?)";
+    "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)";
 
   db.query(sql, [name, email, hashedPassword, role], (err) => {
     if (err) {
@@ -28,7 +28,7 @@ exports.register = (req, res) => {
 exports.login = (req, res) => {
   const { email, password } = req.body;
 
-  const sql = "SELECT * FROM Users WHERE email = ?";
+  const sql = "SELECT * FROM users WHERE email = ?";
   db.query(sql, [email], (err, results) => {
     if (err || results.length === 0) {
       return res.status(401).json({ message: "Invalid credentials" });

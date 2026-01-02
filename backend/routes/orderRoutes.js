@@ -4,6 +4,7 @@ const {
   createOrder,
   getUserOrders,
   getAllOrders,
+  getPurchasedBooks,
 } = require("../controllers/orderController");
 
 const { authMiddleware, adminMiddleware } = require("../middleware/authMiddleware");
@@ -17,10 +18,10 @@ router.get("/", authMiddleware, adminMiddleware, getAllOrders);
 
 module.exports = router;
 
-const { authMiddleware } = require("../middleware/authMiddleware");
-const {
-  createOrder,
-  getPurchasedBooks
-} = require("../controllers/orderController");
+// const { authMiddleware } = require("../middleware/authMiddleware");
+// const {
+//   createOrder,
+//   getPurchasedBooks
+// } = require("../controllers/orderController");
 
 router.get("/my-books", authMiddleware, getPurchasedBooks);

@@ -22,7 +22,7 @@ exports.createOrder = (req, res) => {
 
   // 1️Fetch books from DB
   db.query(
-    "SELECT id, name, price, quantity FROM Books WHERE id IN (?)",
+    "SELECT id, name, price, quantity FROM books WHERE id IN (?)",
     [bookIds],
     (err, books) => {
       if (err) {
@@ -61,7 +61,7 @@ exports.createOrder = (req, res) => {
 
       //  Insert order
       db.query(
-        "INSERT INTO Orders (user_id, total) VALUES (?, ?)",
+        "INSERT INTO orders (user_id, total) VALUES (?, ?)",
         [userId, total],
         (err, result) => {
           if (err) {
@@ -82,7 +82,7 @@ exports.createOrder = (req, res) => {
           console.log("OrderItems to insert:", orderItems);
 
           db.query(
-            "INSERT INTO OrderItems (order_id, book_id, quantity) VALUES ?",
+            "INSERT INTO orderItems (order_id, book_id, quantity) VALUES ?",
             [orderItems],
             (err) => {
               if (err) {
@@ -99,7 +99,7 @@ exports.createOrder = (req, res) => {
                 );
 
                 db.query(
-                  "UPDATE Books SET quantity = quantity - ? WHERE id = ?",
+                  "UPDATE books SET quantity = quantity - ? WHERE id = ?",
                   [i.quantity, i.book_id],
                   (err, result) => {
                     if (err) {
@@ -139,9 +139,9 @@ exports.getUserOrders = (req, res) => {
       b.name,
       b.price,
       oi.quantity
-    FROM Orders o
-    JOIN OrderItems oi ON o.id = oi.order_id
-    JOIN Books b ON oi.book_id = b.id
+    FROM orders o
+    JOIN orderItems oi ON o.id = oi.order_id
+    JOIN books b ON oi.book_id = b.id
     WHERE o.user_id = ?`;
 
   db.query(sql, [req.user.id], (err, results) => {
@@ -168,10 +168,10 @@ exports.getAllOrders = (req, res) => {
       b.name,
       b.price,
       oi.quantity
-    FROM Orders o
-    JOIN Users u ON o.user_id = u.id
-    JOIN OrderItems oi ON o.id = oi.order_id
-    JOIN Books b ON oi.book_id = b.id`;
+    FROM orders o
+    JOIN users u ON o.user_id = u.id
+    JOIN orderItems oi ON o.id = oi.order_id
+    JOIN books b ON oi.book_id = b.id`;
 
   db.query(sql, (err, results) => {
     if (err) {
@@ -195,9 +195,9 @@ exports.getPurchasedBooks = (req, res) => {
       b.author,
       b.pdf,
       b.image
-    FROM Orders o
-    JOIN OrderItems oi ON o.id = oi.order_id
-    JOIN Books b ON oi.book_id = b.id
+    FROM orders o
+    JOIN orderItems oi ON o.id = oi.order_id
+    JOIN books b ON oi.book_id = b.id
     WHERE o.user_id = ?
   `;
 
