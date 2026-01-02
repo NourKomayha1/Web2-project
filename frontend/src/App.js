@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate  } from 'react-router-dom';
+
 import { BooksProvider } from './context/booksContext';
 
 import NavBar from './components/NavBar';
@@ -11,12 +12,34 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import ArabicBooks from './pages/ArabicBooks';
 import EnglishBooks from './pages/EnglishBooks';
-import PurchasedBooks from './pages/PurchasedBooks';
+
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Admin from "./pages/Admin";
+
+// Admin route guard
+const AdminRoute = ({ children }) => {
+  const rawUser = localStorage.getItem("user");
+  let user = null;
+
+  try {
+    user = rawUser ? JSON.parse(rawUser) : null;
+  } catch (error) {
+    console.error("Failed to parse user from localStorage:", error);
+  }
+
+  if (!user || user.role !== "admin") {
+    alert("Access denied: Admins only");
+    return <Navigate to="/" />;
+  }
+
+  return children;
+};
 
 function App() {
   return (
     <BooksProvider>
-    <Router basename="/Web2-project">
+    <Router>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -26,7 +49,20 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/arabic" element={<ArabicBooks />} />
         <Route path="/english" element={<EnglishBooks />} />
-        <Route path="/purchased" element={<PurchasedBooks />} />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+       {/* <Route path="/admin" element={<Admin />} /> */}
+
+        {/* <Route path="/admin" element={<AdminRoute> <Admin /></AdminRoute> }/> */}
+
+        <Route path="/admin" element={
+  <AdminRoute>
+    <Admin />
+  </AdminRoute>
+} />
+
 
       </Routes>
       <Footer />
