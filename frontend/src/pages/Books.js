@@ -11,7 +11,7 @@ function Books() {
   // Fetch books from backend
   const fetchBooks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/books");
+      const res = await axios.get(`${process.env.REACT_APP_baseUrl}/api/books`);
       // Convert price to number
       const booksWithNumbers = res.data.map((b) => ({
         ...b,

@@ -1,5 +1,5 @@
- import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { BooksContext } from "../context/booksContext";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "../style/styles.css";
@@ -9,6 +9,7 @@ import { getMyPurchasedBooks } from "../services/api";
 
 
 export default function Cart() {
+  const navigate = useNavigate();
   const {
     cart,
     addToCart,
@@ -33,10 +34,10 @@ export default function Cart() {
         console.log("No purchased books yet");
       }
     };
-  
+
     loadPurchasedBooks();
   }, []);
-  
+
 
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
   const shipping = 3;
@@ -46,6 +47,13 @@ export default function Cart() {
   // HANDLE PURCHASE
   // ===============================
   const handlePurchase = async () => {
+    // Check if user is logged in
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+
     try {
       const orderItems = cart.map((item) => ({
         book_id: item.id,

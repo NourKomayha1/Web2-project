@@ -10,7 +10,7 @@ function ArabicBooks() {
 
   const fetchBooks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/books");
+      const res = await axios.get(`${process.env.REACT_APP_baseUrl}/api/books`);
       // Filter only Arabic books and convert price to number
       const filtered = res.data
         .filter((b) => b.category === "arabic")

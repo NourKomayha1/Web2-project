@@ -12,7 +12,7 @@ export const BooksProvider = ({ children }) => {
   // ===============================
   const fetchBooks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/books");
+      const res = await axios.get(`${process.env.REACT_APP_baseUrl}/api/books`);
       // Ensure price & quantity are numbers
       const books = res.data.map((b) => ({
         ...b,

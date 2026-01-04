@@ -35,7 +35,7 @@ export default function Admin() {
   // ===============================
   const fetchBooks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/books");
+      const res = await axios.get(`${process.env.REACT_APP_baseUrl}/api/books`);
       setBooks(res.data);
     } catch (err) {
       alert("Failed to fetch books");
@@ -52,7 +52,7 @@ export default function Admin() {
   const addBook = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/api/books",
+        `${process.env.REACT_APP_baseUrl}/api/books`,
         newBook,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -83,7 +83,7 @@ export default function Admin() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/books/${id}`,
+        `${process.env.REACT_APP_baseUrl}/api/books/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -113,7 +113,7 @@ export default function Admin() {
   const saveEdit = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/books/${id}`,
+        `${process.env.REACT_APP_baseUrl}/api/books/${id}`,
         editData,
         {
           headers: { Authorization: `Bearer ${token}` },

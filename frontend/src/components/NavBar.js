@@ -8,10 +8,21 @@ function NavigationBar() {
   const navigate = useNavigate();
 
   // Get logged-in user from localStorage
-  const user = localStorage.getItem("user")
-  ? JSON.parse(localStorage.getItem("user"))
-  : null;
+  // const user = localStorage.getItem("user")
+  // ? JSON.parse(localStorage.getItem("user"))
+  // : null;
 
+  let user =null;
+
+  try {
+    const storedUser = localStorage.getItem("user");
+    if(storedUser){
+      user = JSON.parse(storedUser);
+    }
+  } catch (err){
+    console.error("Error parsing user from localStorage:",err);
+    user=null;
+  }
 
   // Logout function (design unchanged)
   const handleLogout = () => {

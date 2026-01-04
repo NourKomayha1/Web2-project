@@ -1,6 +1,6 @@
 // src/services/api.js
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = `${process.env.REACT_APP_baseUrl}/api`;
 
 // Login user
 export const loginUser = async (email, password) => {
@@ -131,7 +131,7 @@ export const deleteBook = async (id) => {
 export const createOrder = async (items) => {
     const token = localStorage.getItem("token");
   
-    const res = await fetch("http://localhost:5000/api/orders", {
+    const res = await fetch(`${process.env.REACT_APP_baseUrl}/api/orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -157,7 +157,7 @@ export const createOrder = async (items) => {
   export const getMyPurchasedBooks = async () => {
     const token = localStorage.getItem("token");
   
-    const res = await fetch("http://localhost:5000/api/orders/my-books", {
+    const res = await fetch(`${process.env.REACT_APP_baseUrl}/api/orders/my-books`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
